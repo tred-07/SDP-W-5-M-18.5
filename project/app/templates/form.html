@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
+{% block title %}{{type}}{% endblock %}
 {% load crispy_forms_tags %}
 {% block content %}
 <form action="" method="post" style="width: 50%;margin: auto;">
+    {% csrf_token %}
     <!-- {{form|crispy}} -->
     {% if form.non_field_errors %}
     {% for er in form.non_field_errors %}
@@ -13,6 +15,6 @@
     {{fm}}
     {{fm.errors}}
     {% endfor %}
-    <button class="btn btn-primary">Sign Up</button>
+    <button class="btn btn-primary">{{type}}</button>
 </form>
 {% endblock %}
